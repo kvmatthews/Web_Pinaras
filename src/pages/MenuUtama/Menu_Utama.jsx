@@ -8,7 +8,6 @@ import GulaMerah from "../../assets/img/Gula-merah.jpg";
 import Selada from "../../assets/img/Selada.jpeg";
 import Captikus from "../../assets/img/Captikus.jpg";
 import AyamBoiler from "../../assets/img/Ayam boiler.jpeg";
-import AirTerjun from "../../assets/video/Air terjun.mp4";
 import { TbMapSearch } from "react-icons/tb";
 import { FaUser } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa";
@@ -322,7 +321,7 @@ const MenuUtama = () => {
           }`}
         >
           <video className="gambar_potensi" controls>
-            <source src={AirTerjun} type="video/mp4" />
+            <source src={""} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div className="informasi_potensi">
@@ -349,7 +348,7 @@ const MenuUtama = () => {
             </div>
             <div className="potensi_mobile">
               <video className="gambar_potensi" controls>
-                <source src={AirTerjun} type="video/mp4" />
+                <source src={""} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <button className="button_unduh_mobile">

@@ -1,6 +1,6 @@
 import React from "react";
 import "./PotensiDesa.css";
-import PetaPotensi from "../../assets/img/PETA POTENSI WISATA DAN UMKM.jpg";
+import PetaPotensi from "../../assets/img/PETA POTENSI WISATA DAN UMKM_rez.jpg";
 
 const PotensiDesa = () => {
   return (

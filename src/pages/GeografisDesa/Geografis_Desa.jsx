@@ -1,6 +1,6 @@
 import React from "react";
 import "./GeografisDesa.css";
-import PetaPesebaran from "../../assets/img/PETA PERSEBARAN SARANA fix.jpg";
+import PetaPesebaran from "../../assets/img/PETA PERSEBARAN SARANA_rez.jpg";
 
 const GeografisDesa = () => {
   return (
