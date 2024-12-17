@@ -1,0 +1,625 @@
+@import url('https://unpkg.com/leaflet/dist/leaflet.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins;
+}
+
+main {
+    overflow-x: hidden;
+}
+
+/* Section Hero */
+
+.hero_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: auto;
+    height: 520px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    background: url('../../assets/img/arter gmaps.jpg') no-repeat center center fixed;
+    background-size: cover;
+    will-change: background-position;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Adjust the opacity to control darkness */
+    z-index: 0;
+}
+
+.bg_waterfall {
+    display: none;
+}
+
+.selamat_datang {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    color: white;
+    line-height: 1.2;
+    z-index: 1;
+    width: 1000px;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.selamat_datang h1 {
+    color: white;
+    font-size: 5.5rem;
+    margin-bottom: 16px;
+    font-family: Roboto;
+}
+
+.selamat_datang h2 {
+    font-size: 1.8rem;
+    font-family: Roboto;
+}
+
+
+/* Section Sejarah */
+.container_sejarah {
+    display: flex;
+    flex-direction: column;
+    margin: 40px auto 40px auto;
+    width: 1000px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.container_sejarah.float-in {
+    opacity: 1;
+    transform: translateY(0);
+    /* Move to original position */
+}
+
+.container_sejarah p {
+    margin-top: 16px;
+    text-align: center;
+    color: #505050;
+    font-size: 0.95rem;
+}
+
+.title_sejarah_desa {
+    color: #454545;
+    margin-bottom: 6px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.line_border {
+    border: #2A9D8F 1.5px solid;
+    width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slider_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.slider_wrapper {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+    width: 100%;
+}
+
+.slider_image {
+    flex-shrink: 0;
+    width: 28.60%;
+    height: auto;
+    margin: 0 20px;
+    border-radius: 10px;
+}
+
+.slider_button {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.slider_button:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.slider_button:first-of-type {
+    left: -34px;
+}
+
+.slider_button:last-of-type {
+    right: -52px;
+}
+
+/* Section Geografis */
+
+.section_geografis {
+    display: flex;
+    width: 1100px;
+    height: 350px;
+    justify-content: space-between;
+    margin: auto;
+    color: #454545;
+}
+
+.informasi_geografis {
+    padding-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section_geografis p {
+    width: 600px;
+    color: #505050;
+    margin-top: 10px;
+}
+
+.gambar_geografis {
+    width: 340px;
+    height: max-content;
+    margin: auto;
+}
+
+.button_geografis {
+    display: flex;
+    margin: 16px auto auto auto;
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+.button_geografis button {
+    height: 44px;
+    width: 200px;
+    cursor: pointer;
+    border: none;
+    background-color: #2A9D8F;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.button_geografis .button_unduh {
+    width: 170px;
+}
+
+.button_geografis button:hover {
+    background-color: #1f7e6e;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button_geografis button:active {
+    background-color: #67c5ba;
+}
+
+/* Section Potensi */
+
+.section_potensi {
+    display: flex;
+    width: 1100px;
+    height: 350px;
+    justify-content: space-between;
+    margin: auto;
+    color: #454545;
+}
+
+.informasi_potensi {
+    padding-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section_potensi h1 {
+    text-align: right;
+}
+
+.section_potensi p {
+    width: 550px;
+    color: #505050;
+    text-align: justify;
+    direction: rtl;
+    margin-top: 10px;
+}
+
+.gambar_potensi {
+    width: 400px;
+    height: max-content;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.button_potensi {
+    display: flex;
+    margin: 16px auto auto auto;
+    justify-content: flex-end;
+    gap: 30px;
+}
+
+.button_potensi button {
+    height: 44px;
+    width: 200px;
+    cursor: pointer;
+    border: none;
+    background-color: #2A9D8F;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+}
+
+.button_potensi button:hover {
+    background-color: #1f7e6e;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button_potensi button:active {
+    background-color: #67c5ba;
+}
+
+/* Geografis & Potensi Animation */
+.section_geografis {
+    opacity: 0;
+    position: relative;
+    transform: translateX(-80px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section_potensi {
+    opacity: 0;
+    position: relative;
+    transform: translateX(80px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Geografis animation: From Left */
+.section_geografis.appear-from-left {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Potensi animation: From Right */
+.section_potensi.appear-from-right {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+
+/* Section Demografi */
+
+.background_demografi h1 {
+    color: #454545;
+    text-align: center;
+    margin-bottom: 10px;
+    padding-top: 20px;
+}
+
+.background_demografi p {
+    color: #505050;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.demografi_container {
+    display: flex;
+    max-width: 1200px;
+    height: 260px;
+    margin: auto auto 100px auto;
+    justify-content: space-between;
+    padding-left: 120px;
+    padding-right: 120px;
+    margin-top: 30px;
+}
+
+.logo {
+    margin-top: auto;
+    margin-bottom: auto;
+    color: #2A9D8F;
+}
+
+.logo h3 {
+    text-align: center;
+    font-size: 40px;
+}
+
+.logo h4 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.logo h5 {
+    text-align: center;
+}
+
+.icon {
+    display: flex;
+    max-width: max-content;
+    max-height: max-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive Design 600px */
+
+.potensi_mobile,
+.button_unduh_mobile {
+    display: none;
+}
+
+@media (max-width: 600px) {
+
+    .hero_section {
+        height: 400px;
+        background: url('../../assets/img/arter gmaps.jpg') no-repeat center center fixed;
+        background-size: cover;
+        will-change: background-position;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 0;
+    }
+
+    .bg_waterfall {
+        display: none;
+    }
+
+    .selamat_datang {
+        text-align: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        width: 400px;
+    }
+
+    .selamat_datang h1 {
+        color: white;
+        font-size: 3rem;
+        margin-bottom: 16px;
+    }
+
+    .selamat_datang h2 {
+        font-size: 1rem;
+    }
+
+
+    /* Section Sejarah */
+    .container_sejarah {
+        display: flex;
+        flex-direction: column;
+        margin: 40px auto 40px auto;
+        width: 300px;
+    }
+
+    .container_sejarah p {
+        margin-top: 16px;
+        text-align: justify;
+        color: #505050;
+        font-size: 0.95rem;
+    }
+
+    .title_sejarah_desa {
+        color: #454545;
+        margin-bottom: 6px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .line_border {
+        border: #2A9D8F 2px solid;
+        border-radius: 40px;
+        width: 150px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* slider */
+
+    .slider_container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    .slider {
+        width: 100%;
+    }
+
+    .slider_image {
+        width: 100%;
+        margin: 0;
+    }
+
+    .slider_button:first-of-type {
+        left: -40px;
+    }
+
+    .slider_button:last-of-type {
+        right: -40px;
+    }
+
+    /* Section Geografis */
+    .section_geografis {
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        height: max-content;
+        margin: auto;
+    }
+
+    .informasi_geografis {
+        padding-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .section_geografis p {
+        width: 300px;
+        margin: 10px auto 0px auto;
+    }
+
+    .gambar_geografis {
+        width: 300px;
+        height: max-content;
+        margin: 20px auto 0 auto;
+    }
+
+    .button_geografis {
+        display: none;
+    }
+
+    .button_unduh_mobile {
+        display: flex;
+        height: 50px;
+        width: 200px;
+        cursor: pointer;
+        border: none;
+        background-color: #2A9D8F;
+        color: white;
+        border-radius: 10px;
+        margin: 10px auto 0 auto;
+        transition: all 0.2s ease;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    .button_unduh_mobile:active {
+        background-color: #67c5ba;
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .button_unduh_mobile .button_logo {
+        margin-bottom: 3px;
+    }
+
+    /* Section Potensi */
+
+    .section_potensi {
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        height: max-content;
+    }
+    
+    .informasi_potensi {
+        padding-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .section_potensi h1 {
+        text-align: center;
+    }
+    
+    .section_potensi p {
+        width: 300px;
+        color: #505050;
+        text-align: justify;
+        direction: ltr;
+        margin: 10px auto 0px auto;
+    }
+    
+    .gambar_potensi {
+        display: none;
+    }
+    
+    .button_potensi {
+        display: none;
+    }
+
+    .potensi_mobile {
+        display: block;
+    }
+
+    .potensi_mobile .gambar_potensi {
+        display: block;
+        width: 320px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* Section Demografi */
+
+    .background_demografi {
+        margin-top: 40px;
+    }
+
+    .background_demografi h1 {
+        color: #454545;
+        text-align: center;
+        margin-bottom: 10px;
+        padding-top: 20px;
+    }
+
+    .background_demografi p {
+        color: #505050;
+        margin-top: 5px;
+        text-align: center;
+    }
+
+    .demografi_container {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        height: max-content;
+        margin: auto auto 80px auto;
+        gap: 50px;
+        padding: 0;
+        margin-top: 30px;
+    }
+
+}

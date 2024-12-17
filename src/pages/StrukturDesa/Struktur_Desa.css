@@ -1,0 +1,22 @@
+.container_struktur_desa {
+    width: 1200px;
+    height: 100%;
+    margin: 30px auto 40px auto;
+}
+
+.container_struktur_desa h1{
+    /* margin-left: 20px; */
+    text-align: center;
+}
+
+.image_struktur_desa{
+    width: 100%;
+    height: 100%;
+}
+
+.container_struktur_desa .line_border{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-color: black;
+    /* width: ; */
+}

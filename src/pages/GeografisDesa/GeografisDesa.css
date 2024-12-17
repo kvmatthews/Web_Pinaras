@@ -1,0 +1,22 @@
+.container_geografis {
+    width: 1200px;
+    height: 100%;
+    margin: 30px auto 40px auto;
+}
+
+.container_geografis h1{
+    /* margin-left: 20px; */
+    text-align: center;
+}
+
+.image_peta_pesebaran{
+    width: 100%;
+    height: 100%;
+}
+
+.container_geografis .line_border{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-color: black;
+    /* width: ; */
+}
